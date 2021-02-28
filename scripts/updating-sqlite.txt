@@ -1,0 +1,26 @@
+
+1. Export data as CSV from https://github.com/CSSEGISandData/COVID-19
+	* Confirmed Cases (csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv)
+	* Number of Deaths (csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv)
+    * Number of Recoverys (csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv)
+
+2. Extract them into covid_data/data_downloads/
+
+3. Reshape Data
+   Open the CMD and run the following commands (one after another):
+	```
+	...\scripts>python3 data_transform.py --variable confirmed
+    ...\scripts>python3 data_transform.py --variable deaths
+    ...\scripts>python3 data_transform.py --variable recovered
+	```
+4. Create SQLite Database
+   Open the CMD and run the following commands (one after another):
+    	```
+	...\scripts>python3 covid_importer.py --column confirmed
+    ...\scripts>python3 covid_importer.py --column deaths
+    ...\scripts>python3 covid_importer.py --column recovered
+	```
+
+5. An SQLite data.db file is created in /sqlite/
+
+
